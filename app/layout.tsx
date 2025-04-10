@@ -6,6 +6,7 @@ import { Navbar } from "@/components/ui/navbar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -24,16 +25,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const layoutStyles = {
+    display: "flex",
+    flexDirection: "column" as const,
+    minHeight: "100vh",
+    margin: "0 auto",
+    maxWidth: "1680px",
+    padding: "0 20px",
+  };
+
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} `}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-          margin: "0 auto",
-        }}
+        className={`${geistSans.className} ${geistMono.variable} `}
+        style={layoutStyles}
       >
         <Navbar />
         <main style={{ flex: 1 }}>{children}</main>
