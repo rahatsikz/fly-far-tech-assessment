@@ -20,14 +20,25 @@ export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
   };
 
   return (
-    <Box sx={{ width: "100%", typography: "body1" }}>
+    <Box sx={{ width: "100%", typography: "body1", paddingTop: "30px" }}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box>
           <TabList
             onChange={handleChange}
             aria-label='Search Tabs'
+            style={{
+              alignItems: "center",
+              backgroundColor: "white",
+              justifyContent: "center",
+              margin: "0 auto",
+              maxWidth: "482px",
+              padding: "0 16px",
+              width: "100%",
+              borderRadius: "30px",
+              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+            }}
             slotProps={{
-              indicator: { style: { background: "var(--primary)" } },
+              indicator: { style: { background: "transparent" } },
             }}
           >
             {tabs.map((tab) => (
@@ -53,7 +64,14 @@ function FlyFarTab({ label, value, icon, ...props }: TabProps) {
       value={value}
       icon={icon}
       iconPosition={"start"}
-      style={{ color: "var(--primary)" }}
+      sx={{
+        "&.Mui-selected": { backgroundColor: "var(--primary)", color: "white" },
+        borderRadius: "20px",
+        minHeight: "36px",
+        paddingY: 0.5,
+        paddingX: 3,
+        textTransform: "none",
+      }}
     />
   );
 }
