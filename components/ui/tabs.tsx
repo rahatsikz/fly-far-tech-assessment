@@ -1,11 +1,13 @@
 "use client";
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Tab, { TabProps } from "@mui/material/Tab";
+import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { useMount } from "@/hooks/use-mount";
+import { TabProps } from "@/types";
+import { tabContents } from "@/data";
 
 export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
   const [value, setValue] = React.useState("flight");
@@ -32,7 +34,7 @@ export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
               justifyContent: "center",
               margin: "0 auto",
               maxWidth: "482px",
-              padding: "0 16px",
+              padding: "8px 16px",
               width: "100%",
               borderRadius: "30px",
               boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
@@ -47,8 +49,17 @@ export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
           </TabList>
         </Box>
         {tabs.map((tab) => (
-          <TabPanel key={tab.value} value={tab.value}>
-            {tab.label}
+          <TabPanel
+            key={tab.value}
+            value={tab.value}
+            sx={{
+              maxWidth: "1240px",
+              margin: "16px auto 0",
+              borderRadius: "12px",
+            }}
+            style={{ backgroundColor: "white" }}
+          >
+            {tabContents(tab.value)}
           </TabPanel>
         ))}
       </TabContext>
@@ -56,7 +67,13 @@ export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
   );
 }
 
-function FlyFarTab({ label, value, icon, ...props }: TabProps) {
+function FlyFarTab({
+  label,
+  value,
+  icon,
+  // ommit children from props
+  ...props
+}: TabProps) {
   return (
     <Tab
       {...props}
@@ -73,5 +90,5 @@ function FlyFarTab({ label, value, icon, ...props }: TabProps) {
         textTransform: "none",
       }}
     />
-  );
+  ) as React.ReactNode;
 }

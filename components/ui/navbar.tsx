@@ -27,7 +27,6 @@ export function Navbar() {
         background: "white",
         padding: "20px",
         boxShadow: "none",
-        // borderBottom: "1px solid #e0e0e0",
       }}
     >
       <Container maxWidth='xl'>
