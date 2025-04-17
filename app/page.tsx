@@ -1,6 +1,7 @@
 import { SearchTabs } from "@/components/ui/tabs";
 import { tabs as tabsData } from "@/data";
 import bgImage from "@/assets/images/mainbannerimg.webp";
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
@@ -18,9 +19,19 @@ export default function Home() {
           borderRadius: "12px",
         }}
       >
-        <div style={{ position: "relative", zIndex: "1" }}>
+        <Box
+          sx={{
+            position: "relative",
+            zIndex: "1",
+            padding: {
+              xs: "21px 14px 26px",
+              sm: "21px 26px 26px",
+              md: "26px 32px 32px",
+            },
+          }}
+        >
           <SearchTabs tabs={tabsData} />
-        </div>
+        </Box>
       </div>
       <div
         style={{

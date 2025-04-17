@@ -100,7 +100,8 @@ export function ComboBox({
           disabled={disabled}
           sx={{
             textTransform: "none",
-            width: 280,
+            width: "100%",
+            minWidth: 200,
             justifyContent: "flex-start",
             bgcolor: "#d7e7f4",
             color: "var(--secondary)",

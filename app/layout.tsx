@@ -38,12 +38,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.className} ${geistMono.variable} `}
+        className={`${geistSans.className} ${geistMono.variable}  `}
         style={layoutStyles}
       >
         <Navbar />
         <Providers>{children}</Providers>
-        <div>Footer</div>
+        {/* <div>Footer</div> */}
       </body>
     </html>
   );

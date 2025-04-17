@@ -35,11 +35,11 @@ export const tabContents = (value: string) => {
     case "flight":
       return <FlightTabContent />;
     case "hotel":
-      return <div>Hotel</div>;
+      return null;
     case "tour":
-      return <div>Tour</div>;
+      return null;
     case "visa":
-      return <div>Visa</div>;
+      return null;
   }
 };
 

@@ -22,7 +22,7 @@ export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
   };
 
   return (
-    <Box sx={{ width: "100%", typography: "body1", paddingTop: "30px" }}>
+    <Box sx={{ width: "100%", typography: "body1" }}>
       <TabContext value={value}>
         <Box>
           <TabList
@@ -86,7 +86,6 @@ function FlyFarTab({
     <Tab
       {...props}
       value={value}
-      // icon={icon}
       iconPosition={"start"}
       label={
         <Box
@@ -101,7 +100,7 @@ function FlyFarTab({
             sx={{
               display: {
                 xs: "none",
-                sm: "inline",
+                md: "inline",
               },
             }}
           >
@@ -116,7 +115,6 @@ function FlyFarTab({
         minHeight: "36px",
         paddingY: 0.5,
         paddingX: 3,
-
         textTransform: "none",
       }}
     />

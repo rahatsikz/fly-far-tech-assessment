@@ -32,7 +32,13 @@ export function Navbar() {
       <Container maxWidth='xl'>
         <Toolbar
           disableGutters
-          sx={{ display: "flex", justifyContent: "space-between" }}
+          sx={{
+            display: "flex",
+            justifyContent: {
+              xs: "center",
+              md: "space-between",
+            },
+          }}
         >
           <Image
             src={logo.src}
