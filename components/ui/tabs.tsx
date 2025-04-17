@@ -28,16 +28,23 @@ export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
           <TabList
             onChange={handleChange}
             aria-label='Search Tabs'
-            style={{
+            sx={{
               alignItems: "center",
               backgroundColor: "white",
               justifyContent: "center",
               margin: "0 auto",
-              maxWidth: "482px",
-              padding: "8px 16px",
+              padding: {
+                xs: "0 8px", // mobile
+                sm: "8px 16px",
+              },
               width: "100%",
               borderRadius: "30px",
               boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              maxWidth: {
+                xs: "380px", // mobile
+                sm: "400px", // tablet
+                md: "482px", // desktop
+              },
             }}
             slotProps={{
               indicator: { style: { background: "transparent" } },
@@ -56,6 +63,7 @@ export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
               maxWidth: "1240px",
               margin: "16px auto 0",
               borderRadius: "12px",
+              padding: "0px",
             }}
             style={{ backgroundColor: "white" }}
           >
@@ -77,16 +85,38 @@ function FlyFarTab({
   return (
     <Tab
       {...props}
-      label={label}
       value={value}
-      icon={icon}
+      // icon={icon}
       iconPosition={"start"}
+      label={
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            flexDirection: "row-reverse",
+          }}
+        >
+          <Box
+            sx={{
+              display: {
+                xs: "none",
+                sm: "inline",
+              },
+            }}
+          >
+            {label}
+          </Box>
+          <div> {icon} </div>
+        </Box>
+      }
       sx={{
         "&.Mui-selected": { backgroundColor: "var(--primary)", color: "white" },
         borderRadius: "20px",
         minHeight: "36px",
         paddingY: 0.5,
         paddingX: 3,
+
         textTransform: "none",
       }}
     />

@@ -10,7 +10,10 @@ import {
   TextField,
   Typography,
   Button,
+  IconButton,
+  Box,
 } from "@mui/material";
+import { LocationOn } from "@mui/icons-material";
 
 export interface ComboBoxOptionProps {
   label: string;
@@ -63,22 +66,51 @@ export function ComboBox({
 
   return (
     <>
-      <Button
+      <Box
         onClick={handleOpen}
-        variant='outlined'
-        disabled={disabled}
         sx={{
-          textTransform: "none",
-          width: 280,
-          justifyContent: "flex-start",
-          bgcolor: "#d7e7f4",
-          color: "var(--secondary)",
-          borderRadius: "0px",
-          border: "none",
+          display: "flex",
+          alignItems: "center",
+          gap: 1,
+          bgcolor: "var(--primary)",
+          borderRadius: 2,
+          overflow: "hidden",
+          pl: 1.5,
         }}
       >
-        {value ? value.label : placeholder}
-      </Button>
+        <IconButton
+          size='small'
+          sx={{
+            backgroundColor: "var(--primary)",
+            color: "white",
+            borderRadius: 0,
+            borderTopLeftRadius: 5,
+            borderBottomLeftRadius: 5,
+            px: 0.24,
+            mr: 0,
+            "&:hover": {
+              backgroundColor: "var(--primary)",
+            },
+          }}
+        >
+          <LocationOn sx={{ color: "white", fontSize: 18 }} />
+        </IconButton>
+        <Button
+          variant='outlined'
+          disabled={disabled}
+          sx={{
+            textTransform: "none",
+            width: 280,
+            justifyContent: "flex-start",
+            bgcolor: "#d7e7f4",
+            color: "var(--secondary)",
+            borderRadius: "0px",
+            border: "none",
+          }}
+        >
+          {value ? value.label : placeholder}
+        </Button>
+      </Box>
 
       <Popper
         open={open}

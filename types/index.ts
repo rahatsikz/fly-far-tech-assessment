@@ -99,3 +99,4 @@ export type TabProps = {
     ischeap: boolean;
   }
   
+  export type FlightTypeProps =  "multi-city" | "one-way" | "round-way"
