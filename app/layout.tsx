@@ -32,7 +32,7 @@ export default function RootLayout({
     minHeight: "100vh",
     margin: "0 auto",
     maxWidth: "1680px",
-    padding: "0 20px",
+    padding: "0 20px 30px",
   };
 
   return (
@@ -43,7 +43,6 @@ export default function RootLayout({
       >
         <Navbar />
         <Providers>{children}</Providers>
-        {/* <div>Footer</div> */}
       </body>
     </html>
   );
