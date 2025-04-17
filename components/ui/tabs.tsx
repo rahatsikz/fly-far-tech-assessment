@@ -26,6 +26,7 @@ export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
       <TabContext value={value}>
         <Box>
           <TabList
+            variant='fullWidth'
             onChange={handleChange}
             aria-label='Search Tabs'
             sx={{
@@ -42,8 +43,8 @@ export function SearchTabs({ tabs }: { tabs: TabProps[] }) {
               boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
               maxWidth: {
                 xs: "380px", // mobile
-                sm: "400px", // tablet
-                md: "482px", // desktop
+                sm: "480px", // tablet
+                md: "475px", // desktop
               },
             }}
             slotProps={{
@@ -100,7 +101,7 @@ function FlyFarTab({
             sx={{
               display: {
                 xs: "none",
-                md: "inline",
+                sm: "inline",
               },
             }}
           >
@@ -116,6 +117,11 @@ function FlyFarTab({
         paddingY: 0.5,
         paddingX: 3,
         textTransform: "none",
+        minWidth: {
+          xs: 0,
+          sm: 0,
+          md: "auto",
+        },
       }}
     />
   ) as React.ReactNode;

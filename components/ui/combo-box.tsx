@@ -101,7 +101,7 @@ export function ComboBox({
           sx={{
             textTransform: "none",
             width: "100%",
-            minWidth: 200,
+            minWidth: 230,
             justifyContent: "flex-start",
             bgcolor: "#d7e7f4",
             color: "var(--secondary)",
